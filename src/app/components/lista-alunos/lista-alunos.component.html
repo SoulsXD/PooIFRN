@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <input name="nome" [(ngModel)]="nome" placeholder="Nome do aluno" />
+    <input name="idade" [(ngModel)]="idade" type="number" placeholder="Idade" />
+    <input name="matricula" [(ngModel)]="matricula" placeholder="Matrícula" />
+    <button (click)="adicionarAluno()">Adicionar Aluno</button>
+  </div>
+
+  <div *ngIf="alunoAdicionado" class="message">
+    Aluno adicionado com sucesso!
+  </div>
+
+  <div class="alunos-lista">
+    <h3>Alunos Adicionados</h3>
+    <ul>
+      <li *ngFor="let aluno of alunos">
+        {{ aluno.nome }} - {{ aluno.matricula }}
+      </li>
+    </ul>
+    <div *ngIf="alunos.length === 0">
+      Nenhum aluno foi adicionado ainda.
+    </div>
+  </div>
+</div>

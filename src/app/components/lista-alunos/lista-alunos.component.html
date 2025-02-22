@@ -13,7 +13,7 @@
   </form>
 
   <div *ngIf="alunoAdicionado" class="message">
-    Aluno adicionado com sucesso!
+    Aluno adicionado com sucesso! clique no nome para detalhes
   </div>
 
   <div class="alunos-lista">
@@ -23,7 +23,6 @@
         <span class="aluno-nome" (click)="mostrarDetalhes(aluno)">
           {{ aluno.nome }}
         </span>
-        ({{ aluno.idade }} anos) - {{ aluno.matricula }}
         <button class="remover-btn" (click)="removerAluno(aluno.matricula)">❌</button>
       </li>
     </ul>

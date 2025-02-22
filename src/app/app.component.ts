@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ListaAlunosComponent } from './components/lista-alunos/lista-alunos.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -8,4 +9,8 @@ import { ListaAlunosComponent } from './components/lista-alunos/lista-alunos.com
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+
+  title = 'atividade-poo';
+
+}

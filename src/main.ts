@@ -5,6 +5,6 @@ import { ListaAlunosComponent } from './app/components/lista-alunos/lista-alunos
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter([])  // 🔹 Configuração de rotas (se necessário)
+    provideRouter([])
   ]
 }).catch(err => console.error(err));

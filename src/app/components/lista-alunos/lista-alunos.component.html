@@ -1,10 +1,16 @@
 <div class="container">
-  <div>
-    <input name="nome" [(ngModel)]="nome" placeholder="Nome do aluno" />
-    <input name="idade" [(ngModel)]="idade" type="number" placeholder="Idade" />
-    <input name="matricula" [(ngModel)]="matricula" placeholder="Matrícula" />
-    <button (click)="adicionarAluno()">Adicionar Aluno</button>
-  </div>
+  <form (ngSubmit)="adicionarAluno()">
+ 
+    <input name="nome" [(ngModel)]="nome" placeholder="Nome do aluno" required pattern="[A-Za-záàãâäéèêëíìîïóòôöõúùûüçÇ ]+" />
+    
+
+    <input name="idade" [(ngModel)]="idade" type="number" placeholder="Idade" required min="0" />
+
+
+    <input name="matricula" [(ngModel)]="matricula" placeholder="Matrícula" required pattern="^[0-9]+$" />
+
+    <button type="submit" [disabled]="!nome || !idade || !matricula">Adicionar Aluno</button>
+  </form>
 
   <div *ngIf="alunoAdicionado" class="message">
     Aluno adicionado com sucesso!
@@ -14,11 +20,19 @@
     <h3>Alunos Adicionados</h3>
     <ul>
       <li *ngFor="let aluno of alunos">
-        {{ aluno.nome }} - {{ aluno.matricula }}
+        <span class="aluno-nome" (click)="mostrarDetalhes(aluno)">
+          {{ aluno.nome }}
+        </span>
+        ({{ aluno.idade }} anos) - {{ aluno.matricula }}
+        <button class="remover-btn" (click)="removerAluno(aluno.matricula)">❌</button>
       </li>
     </ul>
     <div *ngIf="alunos.length === 0">
       Nenhum aluno foi adicionado ainda.
     </div>
+  </div>
+
+  <div *ngIf="detalhes" class="detalhes">
+    <p>{{ detalhes }}</p>
   </div>
 </div>

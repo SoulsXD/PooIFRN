@@ -23,7 +23,6 @@ export class AlunoService {
       console.log('Aluno com essa matrícula já existe:', aluno);
     }
   }
-
   listarAlunos(): Aluno[] {
     console.log('Listando alunos:', this.turma.alunos);
     return this.turma.alunos;

@@ -16,12 +16,13 @@
     Aluno adicionado com sucesso! clique no nome do aluno para informações detalhadas.
   </div>
 
-
   <h3>Turmas e seus Alunos</h3>
 
   <div *ngFor="let turma of turmas" class="turma-container">
-    <h4>{{ turma.nome }}</h4>
-
+    <h4>
+      {{ turma.nome }}
+      <button class="remover-turma-btn" (click)="removerTurma(turma.nome)">❌</button>
+    </h4>
     <ul>
       <li *ngFor="let aluno of turma.alunos">
         <span class="aluno-nome" (click)="mostrarDetalhes(aluno)">
@@ -30,7 +31,6 @@
         <button class="remover-btn" (click)="removerAluno(aluno.matricula, turma.nome)">❌</button>
       </li>
     </ul>
-
     <p *ngIf="turma.alunos.length === 0">Nenhum aluno nesta turma.</p>
   </div>
 

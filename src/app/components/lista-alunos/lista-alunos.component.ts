@@ -117,4 +117,11 @@ export class ListaAlunosComponent implements OnInit {
       this.detalhes = '';
     }, 5000);
   }
+
+  removerTurma(nomeTurma: string) {
+    const confirmar = confirm(`Tem certeza que deseja remover a turma "${nomeTurma}" e todos os seus alunos?`);
+    if (confirmar) {
+      this.turmas = this.turmas.filter(turma => turma.nome !== nomeTurma);
+    }
+  }
 }

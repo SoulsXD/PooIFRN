@@ -1,59 +1,51 @@
-# AtividadePoo
+# Gerenciamento de Alunos e Turmas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+Este é um projeto desenvolvido em **Angular e TypeScript** para gerenciar alunos e suas respectivas turmas. O sistema permite adicionar e remover alunos, bem como criar novas turmas de forma intuitiva.
 
-## Development server
+## Funcionalidades
+- Adicionar alunos com nome, idade e matrícula.
+- Associar alunos a uma turma existente.
+- Criar novas turmas.
+- Listar turmas e seus alunos.
+- Remover alunos de uma turma.
+- Exibir detalhes do aluno ao clicar no nome.
 
-To start a local development server, run:
+## Tecnologias Utilizadas
+- **Angular** (Framework para desenvolvimento front-end)
+- **TypeScript** (Linguagem utilizada no Angular)
+- **HTML** e **CSS** (Estrutura e estilização)
 
-```bash
-ng serve
+## Como Rodar o Projeto
+###  Clonar o repositório
+```sh
+  git clone https://github.com/seu-usuario/seu-repositorio.git
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+###  Acessar a pasta do projeto
+```sh
+  cd nome-do-projeto
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+###  Instalar as dependências
+```sh
+  npm install
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+###  Rodar o projeto localmente
+```sh
+  ng serve
 ```
+Acesse no navegador: `http://localhost:4200`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estilização
+O layout do sistema foi projetado para ser responsivo e organizado. O estilo foi aplicado utilizando **CSS puro**, com destaque para:
+- **Centralização da interface**
+- **Formulários estilizados**
+- **Botões interativos**
 
-## Running unit tests
+## Melhorias Futuras
+- Implementar armazenamento de dados em um banco de dados.
+- Melhorar o design e usabilidade da interface.
+- Criar um painel administrativo para melhor gerenciamento.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
+ **Alunos**: Marcelo Henrique Cordeiro e Souza, Guilherme Florêncio de Lima, Gabriel Maia
+ **Curso**: Tecnologia em Sistemas para Internet - IFRN
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

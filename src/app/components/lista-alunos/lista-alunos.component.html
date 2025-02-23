@@ -9,9 +9,11 @@
       <option *ngFor="let turma of turmas" [value]="turma.nome">{{ turma.nome }}</option>
     </select>
 
-    <button type="submit" [disabled]="!nome || !idade || !matricula || !turmaSelecionada">Adicionar Aluno</button>
+    <button type="button" (click)="adicionarAluno()" 
+  [disabled]="!nome || !idade || !matricula || !turmaSelecionada">
+  Adicionar Aluno
+</button>
   </form>
-
   <div *ngIf="alunoAdicionado" class="message">
     Aluno adicionado com sucesso! clique no nome do aluno para informações detalhadas.
   </div>

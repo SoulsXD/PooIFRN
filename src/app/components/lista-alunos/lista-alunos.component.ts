@@ -37,7 +37,16 @@ export class ListaAlunosComponent implements OnInit {
   }
 
   carregarTurmas() {
-    this.turmas = this.turmaService.listarTurmas();
+    const turmasSalvas = localStorage.getItem('turmas');
+    if (turmasSalvas) {
+      this.turmas = JSON.parse(turmasSalvas);
+    } else {
+      this.turmas = this.turmaService.listarTurmas();
+    }
+  }
+
+  salvarTurmas() {
+    localStorage.setItem('turmas', JSON.stringify(this.turmas));
   }
 
   adicionarAluno() {
@@ -45,7 +54,7 @@ export class ListaAlunosComponent implements OnInit {
       alert('Selecione uma turma para adicionar o aluno.');
       return;
     }
-    const novaTurma = this.turmaService.listarTurmas().find(t => t.nome === this.turmaSelecionada);
+    const novaTurma = this.turmas.find(t => t.nome === this.turmaSelecionada);
     if (!novaTurma) {
       alert('Turma inválida.');
       return;
@@ -87,6 +96,7 @@ export class ListaAlunosComponent implements OnInit {
       this.nome = '';
       this.idade = '';
       this.matricula = '';
+      this.salvarTurmas();
     } else {
       alert('Por favor, preencha todos os campos.');
     }
@@ -97,16 +107,24 @@ export class ListaAlunosComponent implements OnInit {
       alert('O nome da turma não pode estar vazio!');
       return;
     }
+    const turmaExistente = this.turmas.some(turma => turma.nome.toLowerCase() === this.novaTurmaNome.toLowerCase());
+    if (turmaExistente) {
+      alert('Já existe uma turma com esse nome!');
+      return;
+    }
+
     const novaTurma = new Turma(this.novaTurmaNome);
     this.turmaService.adicionarTurma(novaTurma);
-    this.carregarTurmas();
+    this.turmas.push(novaTurma);
     this.novaTurmaNome = '';
+    this.salvarTurmas();
   }
 
   removerAluno(matricula: string, turmaNome: string) {
     const turma = this.turmas.find(t => t.nome === turmaNome);  
     if (turma) {
       turma.alunos = turma.alunos.filter(aluno => aluno.matricula !== matricula);
+      this.salvarTurmas();
     }
   }
   
@@ -122,6 +140,7 @@ export class ListaAlunosComponent implements OnInit {
     const confirmar = confirm(`Tem certeza que deseja remover a turma "${nomeTurma}" e todos os seus alunos?`);
     if (confirmar) {
       this.turmas = this.turmas.filter(turma => turma.nome !== nomeTurma);
+      this.salvarTurmas();
     }
   }
 }

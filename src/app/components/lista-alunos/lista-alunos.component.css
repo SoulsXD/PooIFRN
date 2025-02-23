@@ -1,10 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .container {
-  max-width: 500px;
-  margin: auto;
+  width: 90%;
+  max-width: 800px;
+  background: white;
   padding: 20px;
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 28%;
 }
 
 form {
@@ -13,19 +25,65 @@ form {
   gap: 10px;
 }
 
-input, button {
+input, select, button {
   padding: 10px;
   font-size: 16px;
-  border-radius: 5px;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
   cursor: pointer;
+  border: none;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.turma-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff3cd;
+  border-radius: 8px;
+}
+
+h3, h4 {
+  text-align: center;
+}
+
+.aluno-nome {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aluno-nome:hover {
+  color: #007bff;
+}
+
+.remover-btn {
+  margin-left: 10px;
+  background: red;
+  color: white;
+  font-size: 14px;
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.remover-btn:hover {
+  background: darkred;
 }

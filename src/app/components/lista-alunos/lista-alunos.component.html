@@ -1,37 +1,44 @@
 <div class="container">
   <form (ngSubmit)="adicionarAluno()">
- 
     <input name="nome" [(ngModel)]="nome" placeholder="Nome do aluno" required pattern="[A-Za-záàãâäéèêëíìîïóòôöõúùûüçÇ ]+" />
-    
-
     <input name="idade" [(ngModel)]="idade" type="number" placeholder="Idade" required min="0" />
-
-
     <input name="matricula" [(ngModel)]="matricula" placeholder="Matrícula" required pattern="^[0-9]+$" />
 
-    <button type="submit" [disabled]="!nome || !idade || !matricula">Adicionar Aluno</button>
+    <select [(ngModel)]="turmaSelecionada" name="turma" required>
+      <option value="" disabled selected>Selecione uma turma</option>
+      <option *ngFor="let turma of turmas" [value]="turma.nome">{{ turma.nome }}</option>
+    </select>
+
+    <button type="submit" [disabled]="!nome || !idade || !matricula || !turmaSelecionada">Adicionar Aluno</button>
   </form>
 
   <div *ngIf="alunoAdicionado" class="message">
-    Aluno adicionado com sucesso! clique no nome para detalhes
+    Aluno adicionado com sucesso! clique no nome do aluno para informações detalhadas.
   </div>
 
-  <div class="alunos-lista">
-    <h3>Alunos Adicionados</h3>
+
+  <h3>Turmas e seus Alunos</h3>
+
+  <div *ngFor="let turma of turmas" class="turma-container">
+    <h4>{{ turma.nome }}</h4>
+
     <ul>
-      <li *ngFor="let aluno of alunos">
+      <li *ngFor="let aluno of turma.alunos">
         <span class="aluno-nome" (click)="mostrarDetalhes(aluno)">
           {{ aluno.nome }}
         </span>
-        <button class="remover-btn" (click)="removerAluno(aluno.matricula)">❌</button>
+        <button class="remover-btn" (click)="removerAluno(aluno.matricula, turma.nome)">❌</button>
       </li>
     </ul>
-    <div *ngIf="alunos.length === 0">
-      Nenhum aluno foi adicionado ainda.
-    </div>
+
+    <p *ngIf="turma.alunos.length === 0">Nenhum aluno nesta turma.</p>
   </div>
 
   <div *ngIf="detalhes" class="detalhes">
     <p>{{ detalhes }}</p>
   </div>
+
+  <h3>Adicionar Turma</h3>
+  <input type="text" [(ngModel)]="novaTurmaNome" placeholder="Nome da nova turma" />
+  <button (click)="adicionarTurma()">Adicionar Turma</button>
 </div>

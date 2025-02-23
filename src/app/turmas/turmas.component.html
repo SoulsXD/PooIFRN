@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Gerenciamento de Turmas</h2>
+  
+    <form (ngSubmit)="adicionarTurma()">
+      <input name="nomeTurma" [(ngModel)]="nomeTurma" placeholder="Nome da Turma" required />
+      <button type="submit">Adicionar Turma</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let turma of turmas">
+        {{ turma.nome }}
+        <button (click)="removerTurma(turma.nome)">❌</button>
+      </li>
+    </ul>
+  
+    <div *ngIf="turmas.length === 0">
+      Nenhuma turma cadastrada.
+    </div>
+  </div>
+  

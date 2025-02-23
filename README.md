@@ -34,16 +34,6 @@ Este é um projeto desenvolvido em **Angular e TypeScript** para gerenciar aluno
 ```
 Acesse no navegador: `http://localhost:4200`
 
-## Estilização
-O layout do sistema foi projetado para ser responsivo e organizado. O estilo foi aplicado utilizando **CSS puro**, com destaque para:
-- **Centralização da interface**
-- **Formulários estilizados**
-- **Botões interativos**
-
-## Melhorias Futuras
-- Implementar armazenamento de dados em um banco de dados.
-- Melhorar o design e usabilidade da interface.
-- Criar um painel administrativo para melhor gerenciamento.
 
 ---
  **Alunos**: Marcelo Henrique Cordeiro e Souza, Guilherme Florêncio de Lima, Gabriel Maia

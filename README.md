@@ -22,7 +22,7 @@ Este é um projeto desenvolvido em **Angular e TypeScript** para gerenciar aluno
 ```
 ###  Acessar a pasta do projeto
 ```sh
-  cd nome-do-projeto
+  cd PooIFRN
 ```
 ###  Instalar as dependências
 ```sh

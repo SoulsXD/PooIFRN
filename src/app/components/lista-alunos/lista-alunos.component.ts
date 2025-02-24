@@ -74,8 +74,8 @@ export class ListaAlunosComponent implements OnInit {
       return;
     }
 
-    const idade = /^[0-9]+$/;
-    if (!idade.test(this.idade)) {
+    const idadeRegex = /^[0-9]+$/;
+    if (!idadeRegex.test(this.idade)) {
       alert('A idade deve conter apenas números.');
       return;
     }
@@ -90,12 +90,6 @@ export class ListaAlunosComponent implements OnInit {
       alert('Nem nasceu ainda? Como está digitando? 🤔');
       return;
     }
-
-    if (idadeNumber === 0) {
-      alert('0 anos e ja esta digitando? 🤔');
-      return;
-    }
-
 
     console.log('Dados recebidos:', this.nome, this.idade, this.matricula);
 

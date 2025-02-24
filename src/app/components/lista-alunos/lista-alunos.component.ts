@@ -62,11 +62,6 @@ export class ListaAlunosComponent implements OnInit {
 
     const idadeMaxima = 116;
 
-    const idadeNumber = +this.idade;
-    if (isNaN(idadeNumber)) {
-      alert('A idade deve conter apenas números.');
-      return;
-    }
     const nomeRegex = /^[A-Za-záàãâäéèêëíìîïóòôöõúùûüçÇ ]+$/;
     if (!nomeRegex.test(this.nome)) {
       alert('O nome deve conter apenas letras.');
@@ -79,7 +74,14 @@ export class ListaAlunosComponent implements OnInit {
       return;
     }
 
-    if (+this.idade > idadeMaxima) {
+    const idade = /^[0-9]+$/;
+    if (!idade.test(this.idade)) {
+      alert('A idade deve conter apenas números.');
+      return;
+    }
+
+    const idadeNumber = +this.idade;
+    if (idadeNumber > idadeMaxima) {
       alert(`Impossível! O ser humano mais velho tem ${idadeMaxima} anos.`);
       return;
     }
@@ -88,6 +90,12 @@ export class ListaAlunosComponent implements OnInit {
       alert('Nem nasceu ainda? Como está digitando? 🤔');
       return;
     }
+
+    if (idadeNumber === 0) {
+      alert('0 anos e ja esta digitando? 🤔');
+      return;
+    }
+
 
     console.log('Dados recebidos:', this.nome, this.idade, this.matricula);
 
@@ -129,6 +137,7 @@ export class ListaAlunosComponent implements OnInit {
     const turma = this.turmas.find(t => t.nome === turmaNome);  
     if (turma) {
       turma.alunos = turma.alunos.filter(aluno => aluno.matricula !== matricula);
+      this.alunos = this.alunos.filter(aluno => aluno.matricula !== matricula);
       this.salvarTurmas();
     }
   }
